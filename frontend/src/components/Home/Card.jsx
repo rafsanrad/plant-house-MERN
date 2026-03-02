@@ -1,9 +1,11 @@
 import { Link } from 'react-router'
 
-const Card = () => {
+const Card = ({plant}) => {
+  const {_id,name,quantity,image,price,category}=plant || {} 
+  //plant ta jodi na thake tahole empty dekhabe jaate application ta crash na kore.
   return (
     <Link
-      to={`/plant/1`}
+      to={`/plant/${_id}`}
       className='col-span-1 cursor-pointer group shadow-xl p-3 rounded-xl'
     >
       <div className='flex flex-col gap-2 w-full'>
@@ -24,7 +26,7 @@ const Card = () => {
                 group-hover:scale-110 
                 transition
               '
-            src='https://i.ibb.co.com/rMHmQP2/money-plant-in-feng-shui-brings-luck.jpg'
+            src={image}
             alt='Plant Image'
           />
           <div
@@ -35,11 +37,11 @@ const Card = () => {
             '
           ></div>
         </div>
-        <div className='font-semibold text-lg'>Money Plant</div>
-        <div className='font-semibold text-lg'>Category: Indoor</div>
-        <div className='font-semibold text-lg'>Quantity: 10</div>
+        <div className='font-semibold text-lg'>Tree name : {name}</div>
+        <div className='text-gray-500'>Category : {category}</div>
+        <div className='text-gray-500 '>Quantity : {quantity}</div>
         <div className='flex flex-row items-center gap-1'>
-          <div className='font-semibold'> Price: 15$</div>
+          <div className='font-semibold text-green-700'> Price : $ {price}</div>
         </div>
       </div>
     </Link>

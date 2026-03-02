@@ -39,7 +39,6 @@ const AddPlantForm = () => {
     },
     retry: 3,
   });
-
   //react hook form
   const {
     register,
